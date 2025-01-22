@@ -32,16 +32,16 @@ pipeline {
         stage('Docker Build') {
             steps {
                 // Docker 이미지 빌드
-                sh 'docker build -t your-app-name .'
+                sh 'docker build -t practice-cicd .'
             }
         }
 
         stage('Docker Run') {
             steps {
                 // 기존 컨테이너 제거
-                sh 'docker rm -f your-app-name || true'
+                sh 'docker rm -f practice-cicd || true'
                 // 새 컨테이너 실행
-                sh 'docker run -d -p 8081:8080 --name your-app-name your-app-name'
+                sh 'docker run -d -p 8081:8080 --name practice-cicd practice-cicd'
             }
         }
     }
